@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Connector wrapper in order to make using async connector in a sync way.",
   "main": "./dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.16.4"
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.16.0",
