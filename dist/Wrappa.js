@@ -110,7 +110,7 @@ var Wrappa = function () {
     }, {
         key: "getMockForConnectionClassMethods",
         value: function getMockForConnectionClassMethods(methods) {
-            var proto = this.connectionClass.proto;
+            var proto = this.connectionClass.prototype;
             var mock = {};
 
             methods.forEach(function (name) {

@@ -70,7 +70,7 @@ export default class Wrappa {
      * @return {{}} Object with keys as methods and values as functions of method from the proto
      */
     getMockForConnectionClassMethods(methods) {
-        let proto = this.connectionClass.proto;
+        let proto = this.connectionClass.prototype;
         let mock = {};
 
         methods.forEach((name) => mock[name] = proto[name]);
