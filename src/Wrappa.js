@@ -48,7 +48,7 @@ export default class Wrappa {
         let methods = this.getConnectionClassProtoMethods();
         let mock = this.getMockForConnectionClassMethods(methods);
 
-        mock.forEach((name) => mock[name] = this.getDelayerFunctionForConnectionClassFunction(name));
+        Object.keys(mock).forEach((name) => mock[name] = this.getDelayerFunctionForConnectionClassFunction(name));
 
         return mock;
     }
@@ -93,7 +93,8 @@ export default class Wrappa {
                 });
         };
 
-        fn.name = `wrapperForConnectorFn${name}`;
+        Object.defineProperty(fn, "name", {value: `wrapperForConnectorFn${name}`});
+
         return fn;
     }
 

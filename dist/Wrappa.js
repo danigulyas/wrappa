@@ -78,7 +78,7 @@ var Wrappa = function () {
             var methods = this.getConnectionClassProtoMethods();
             var mock = this.getMockForConnectionClassMethods(methods);
 
-            mock.forEach(function (name) {
+            Object.keys(mock).forEach(function (name) {
                 return mock[name] = _this2.getDelayerFunctionForConnectionClassFunction(name);
             });
 
@@ -139,7 +139,8 @@ var Wrappa = function () {
                 });
             };
 
-            fn.name = "wrapperForConnectorFn" + name;
+            Object.defineProperty(fn, "name", { value: "wrapperForConnectorFn" + name });
+
             return fn;
         }
     }]);
