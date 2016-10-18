@@ -129,10 +129,11 @@ var Wrappa = function () {
     }, {
         key: "getDelayerFunctionForConnectionClassFunction",
         value: function getDelayerFunctionForConnectionClassFunction(name) {
-            var _this3 = this;
+            var _arguments = arguments,
+                _this3 = this;
 
             var fn = function fn() {
-                var argArray = args;
+                var argArray = _arguments;
 
                 return _this3.getConnection().then(function (conn) {
                     return conn[name].apply(conn, _toConsumableArray(argArray));

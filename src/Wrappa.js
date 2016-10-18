@@ -85,7 +85,7 @@ export default class Wrappa {
      */
     getDelayerFunctionForConnectionClassFunction(name) {
         let fn = () => {
-            const argArray = args;
+            const argArray = arguments;
 
             return this.getConnection()
                 .then((conn) => {
