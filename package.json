@@ -24,10 +24,11 @@
   },
   "scripts": {
     "run": "node-babel ./",
-    "test": "nyc mocha ./test",
-    "coverage": "nyc report --reporter=text-lcov",
-    "test-tdd": "mocha --watch ./test",
     "build": "babel ./src --out-dir dist",
+    "test": "nyc mocha ./test",
+    "test-tdd": "mocha --watch ./test",
+    "coverage": "npm test; nyc report --reporter=text",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "precommit": "npm run build && git add --all ./dist"
   },
   "repository": {
