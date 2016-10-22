@@ -1,10 +1,16 @@
 import _ from "lodash";
+import InvalidArgumentError from "./InvalidArgumentError";
 export default class Wrappa {
     /**
      * @param {Function} connectionFactoryFn is responsible for returning an actual connection which the calls be executed from.
      * @param connectionClass is the "class" which is containing the methods.
      */
-    constructor(connectionFactoryFn, connectionClass) {
+    constructor(connectionFactoryFn = null, connectionClass = null) {
+        if(!connectionFactoryFn || !_.isFunction(connectionFactoryFn))
+            throw new InvalidArgumentError("The first argument (connectFactoryFn) must be defined and must be a function.");
+        if(!connectionClass)
+            throw new InvalidArgumentError("The second argument (connectFactoryFn) must be defined.");
+
         this.connection = null;
         this.connectionPromise = null;
         this.startedConnecting = false;

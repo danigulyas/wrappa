@@ -3,7 +3,7 @@
   "plugins": ["source-map-support/register"],
   "env": {
     "test": {
-      "plugins": [ "istanbul" ]
+      "plugins": ["istanbul", "source-map-support/register"]
     }
   }
 }

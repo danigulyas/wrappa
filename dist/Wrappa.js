@@ -10,6 +10,10 @@ var _lodash = require("lodash");
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _InvalidArgumentError = require("./InvalidArgumentError");
+
+var _InvalidArgumentError2 = _interopRequireDefault(_InvalidArgumentError);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -21,8 +25,14 @@ var Wrappa = function () {
      * @param {Function} connectionFactoryFn is responsible for returning an actual connection which the calls be executed from.
      * @param connectionClass is the "class" which is containing the methods.
      */
-    function Wrappa(connectionFactoryFn, connectionClass) {
+    function Wrappa() {
+        var connectionFactoryFn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+        var connectionClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
         _classCallCheck(this, Wrappa);
+
+        if (!connectionFactoryFn || !_lodash2.default.isFunction(connectionFactoryFn)) throw new _InvalidArgumentError2.default("The first argument (connectFactoryFn) must be defined and must be a function.");
+        if (!connectionClass) throw new _InvalidArgumentError2.default("The second argument (connectFactoryFn) must be defined.");
 
         this.connection = null;
         this.connectionPromise = null;
