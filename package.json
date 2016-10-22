@@ -7,7 +7,6 @@
     "lodash": "^4.16.4"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-plugin-source-map-support-for-6": "0.0.5",
