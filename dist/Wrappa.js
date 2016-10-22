@@ -41,8 +41,9 @@ var Wrappa = function () {
             if (this.isConnected()) return Promise.resolve(this.connection);
             if (this.startedConnecting) return this.connectionPromise;
 
-            this.connectionPromise = this.connectionFactoryFn().tap(function (connection) {
+            this.connectionPromise = this.connectionFactoryFn().then(function (connection) {
                 _this.connection = connection;
+                return connection;
             }).catch(function (err) {
                 console.error(err, "The promise returned by the connection factory ran into an exception.");
             });

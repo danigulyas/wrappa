@@ -18,8 +18,9 @@ export default class Wrappa {
         if(this.isConnected()) return Promise.resolve(this.connection);
         if(this.startedConnecting) return this.connectionPromise;
 
-        this.connectionPromise = this.connectionFactoryFn().tap((connection) => {
+        this.connectionPromise = this.connectionFactoryFn().then((connection) => {
             this.connection = connection;
+            return connection;
         }).catch((err) => {
             console.error(err, "The promise returned by the connection factory ran into an exception.");
         });
