@@ -1,5 +1,6 @@
 import _ from "lodash";
 import InvalidArgumentError from "./InvalidArgumentError";
+export const DELAYER_FN_NAME_PREFIX = "wrapperForConnectorFn";
 export default class Wrappa {
     /**
      * @param {Function} connectionFactoryFn is responsible for returning an actual connection which the calls be executed from.
@@ -100,9 +101,9 @@ export default class Wrappa {
                 });
         };
 
-        Object.defineProperty(fn, "name", {value: `wrapperForConnectorFn${name}`});
+        Object.defineProperty(fn, "name", {value: `${DELAYER_FN_NAME_PREFIX}${name}`});
 
         return fn;
     }
-
 }
+
