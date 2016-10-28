@@ -1,6 +1,6 @@
 {
   "name": "wrappa",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Connector wrapper in order to make using async connector in a sync way.",
   "main": "./dist/index.js",
   "dependencies": {
